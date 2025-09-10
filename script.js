@@ -17,7 +17,6 @@ function checkKey() {
   const errorMsg = document.getElementById("errorMsg");
 
   if (validKeys.includes(inputKey)) {
-    // Key nnhatv2: giới hạn thời gian
     if (inputKey === "nnhatv2") {
       const firstUse = localStorage.getItem("nnhatv2_start");
       if (firstUse) {
@@ -38,7 +37,6 @@ function checkKey() {
       }
     }
 
-    // Key test (giới hạn 20 lần)
     if (inputKey.startsWith("nnhattest")) {
       let usedCount = parseInt(localStorage.getItem(inputKey + "_count") || "0", 10);
       if (usedCount >= 20) {
@@ -54,7 +52,6 @@ function checkKey() {
       }
     }
 
-    // Các key khác: không giới hạn
     localStorage.setItem("loggedIn", inputKey);
     window.location.href = "main.html";
 
@@ -69,7 +66,6 @@ function logout() {
   window.location.href = "index.html";
 }
 
-// Kiểm tra trạng thái khi vào trang
 window.onload = function() {
   const path = window.location.pathname;
   const loggedIn = localStorage.getItem("loggedIn");
