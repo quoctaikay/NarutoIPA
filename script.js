@@ -48,7 +48,7 @@ function checkKey() {
         usedCount++;
         localStorage.setItem(inputKey + "_count", usedCount.toString());
         localStorage.setItem("loggedIn", inputKey);
-        localStorage.setItem("remaining", (20 - usedCount).toString()); // lưu số lần còn lại
+        localStorage.setItem("remaining", (20 - usedCount).toString());
         window.location.href = "main.html";
         return;
       }
@@ -94,8 +94,7 @@ window.onload = function() {
       if (loggedIn.startsWith("nnhattest")) {
         const remaining = localStorage.getItem("remaining");
         if (remaining) {
-          document.getElementById("remainingInfo").textContent =
-            `🔑 Số lần còn lại cho ${loggedIn}: ${remaining}/20`;
+          document.getElementById("remainingInfo").textContent = `🔑 Số lần còn lại cho ${loggedIn}: ${remaining}/20`;
         }
       }
     }
