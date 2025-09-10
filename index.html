@@ -1,86 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blackout Shop</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:"Orbitron",sans-serif}
-    body{
-      background:#000; /* Nền đen tuyệt đối */
-      color:#888; /* Chữ xám sáng */
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      text-align:center;
-    }
-
-    .avatar{
-      width:180px;
-      height:180px;
-      border-radius:50%;
-      border:4px solid #444; /* viền xám tối */
-      background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk1ReMkJs2s4ZexmhrnDGOp9Und-6WX77Vhg&s") center/cover no-repeat;
-      animation:spin 15s linear infinite;
-      margin-bottom:30px;
-      box-shadow:0 0 20px rgba(255,255,255,0.1); /* ánh sáng mờ nhẹ */
-    }
-
-    @keyframes spin{
-      from{transform:rotate(0deg);}
-      to{transform:rotate(360deg);}
-    }
-
-    h1{
-      font-size:32px;
-      margin-bottom:40px;
-      color:#aaa; /* chữ xám nhạt để đọc dễ */
-    }
-
-    .btns{
-      display:flex;
-      gap:30px;
-    }
-
-    .btn{
-      padding:16px 40px;
-      font-size:20px;
-      font-weight:700;
-      text-decoration:none;
-      color:#ccc; /* text xám sáng */
-      border-radius:50px;
-      background:#111; /* nền nút đen đậm hơn nền */
-      border:2px solid #444; /* viền xám */
-      transition:.3s;
-      box-shadow:0 0 10px rgba(255,255,255,0.05); /* hiệu ứng ẩn ẩn */
-    }
-
-    .btn:hover{
-      transform:scale(1.1);
-      background:#222;
-      border-color:#666;
-    }
-
-    footer{
-      position:absolute;
-      bottom:15px;
-      font-size:14px;
-      color:#666; /* footer xám nhạt */
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UZUMAKI IOS V2 BY 𝙉𝙉𝙝𝙖𝙩🎯 - Đăng nhập</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <div class="avatar"></div>
-  <h1></h1>
-  <div class="btns">
-    <a class="btn" href="https://zalo.me/0394615632" target="_blank">Zalo</a>
-    <a class="btn" href="https://www.facebook.com/share/19gohhwQeH/?mibextid=wwXIfr" target="_blank">Facebook</a>
+  <div class="main-page">
+    <h2>🔑 Nhập key để đăng nhập</h2>
+    <input type="text" id="keyInput" placeholder="Nhập key..." />
+    <button onclick="checkKey()">Đăng nhập</button>
+    <p id="errorMsg" class="countdown"></p>
   </div>
 
-  <footer>© 2025 Developer: Kay😗</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
