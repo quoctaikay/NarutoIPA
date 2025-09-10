@@ -17,6 +17,7 @@ function checkKey() {
   const errorMsg = document.getElementById("errorMsg");
 
   if (validKeys.includes(inputKey)) {
+    // Key nnhatv2: giới hạn thời gian
     if (inputKey === "nnhatv2") {
       const firstUse = localStorage.getItem("nnhatv2_start");
       if (firstUse) {
@@ -37,6 +38,7 @@ function checkKey() {
       }
     }
 
+    // Key test (giới hạn 20 lần)
     if (inputKey.startsWith("nnhattest")) {
       let usedCount = parseInt(localStorage.getItem(inputKey + "_count") || "0", 10);
       if (usedCount >= 20) {
@@ -46,12 +48,13 @@ function checkKey() {
         usedCount++;
         localStorage.setItem(inputKey + "_count", usedCount.toString());
         localStorage.setItem("loggedIn", inputKey);
-        localStorage.setItem("remaining", (20 - usedCount).toString());
+        localStorage.setItem("remaining", (20 - usedCount).toString()); // lưu số lần còn lại
         window.location.href = "main.html";
         return;
       }
     }
 
+    // Các key khác: không giới hạn
     localStorage.setItem("loggedIn", inputKey);
     window.location.href = "main.html";
 
@@ -66,6 +69,7 @@ function logout() {
   window.location.href = "index.html";
 }
 
+// Kiểm tra trạng thái khi vào trang
 window.onload = function() {
   const path = window.location.pathname;
   const loggedIn = localStorage.getItem("loggedIn");
@@ -90,7 +94,8 @@ window.onload = function() {
       if (loggedIn.startsWith("nnhattest")) {
         const remaining = localStorage.getItem("remaining");
         if (remaining) {
-          document.getElementById("remainingInfo").textContent = `🔑 Số lần còn lại cho ${loggedIn}: ${remaining}/20`;
+          document.getElementById("remainingInfo").textContent =
+            `🔑 Số lần còn lại cho ${loggedIn}: ${remaining}/20`;
         }
       }
     }
