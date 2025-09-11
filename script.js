@@ -1,15 +1,15 @@
 // Danh sách key hợp lệ
 const validKeys = [
-  "nnhatv2",
-  "nnhatvip500",
-  "nnhatvip2l",
-  "nnhatvip100ca",
-  "nnhatvip50k",
-  "nnhattest1",
-  "nnhattest2",
-  "nnhattest3",
-  "nnhattest4",
-  "nnhattest5"
+  "kaitokid1",
+  "kaitokidvip2",
+  "kaitokid5",
+  "kaitokid9",
+  "uchihakaitokid",
+  "devkay",
+  "devkay123",
+  "devkay123",
+  "kaitokid4",
+  "kaitokid3"
 ];
 
 function checkKey() {
@@ -17,13 +17,13 @@ function checkKey() {
   const errorMsg = document.getElementById("errorMsg");
 
   if (validKeys.includes(inputKey)) {
-    // Key nnhatv2: giới hạn thời gian
-    if (inputKey === "nnhatv2") {
+    // Key devkay: giới hạn thời gian
+    if (inputKey === "devkay") {
       const firstUse = localStorage.getItem("nnhatv2_start");
       if (firstUse) {
         const timePassed = Date.now() - parseInt(firstUse, 10);
         if (timePassed > 2 * 60 * 60 * 1000) {
-          errorMsg.textContent = "❌ Key nnhatv2 đã hết hạn.";
+          errorMsg.textContent = "❌ Key devkay đã hết hạn.";
           return;
         } else {
           localStorage.setItem("loggedIn", "nnhatv2");
@@ -39,7 +39,7 @@ function checkKey() {
     }
 
     // Key test (giới hạn 20 lần)
-    if (inputKey.startsWith("nnhattest")) {
+    if (inputKey.startsWith("devkay")) {
       let usedCount = parseInt(localStorage.getItem(inputKey + "_count") || "0", 10);
       if (usedCount >= 20) {
         errorMsg.textContent = `❌ Key ${inputKey} đã vượt quá 20 lần đăng nhập.`;
@@ -109,7 +109,7 @@ function startCountdown(exp) {
     const diff = exp - now;
     if (diff <= 0) {
       logout();
-      alert("Key nnhatv2 đã hết hạn.");
+      alert("Key devkay đã hết hạn.");
       return;
     }
     const h = Math.floor(diff/1000/60/60);
