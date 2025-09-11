@@ -1,54 +1,118 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #fff;
-  color: #000;
+  background: radial-gradient(circle at top, #021f1f, #000);
+  color: #fff;
+  text-align: center;
 }
 
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.main-page, .login-box {
-  max-width: 500px;
-  margin: auto;
+.app-container {
   padding: 20px;
+}
+
+.logo img {
+  width: 100px;
+  border-radius: 20px;
+}
+
+.logo h2 {
+  margin: 10px 0 5px;
+  color: #00ff99;
+}
+
+.logo p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.login-box {
+  background: rgba(0, 50, 30, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 350px;
+}
+
+.login-box h3 {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 95%;
+  padding: 12px;
+  background: #00ff99;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00cc77;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.note {
+  background: rgba(0, 40, 20, 0.6);
+  padding: 15px;
+  margin: 15px auto;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.footer {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #888;
+}
+
+.footer a {
+  color: #00ff99;
+  text-decoration: none;
+}
+
+.main-page {
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+}
+
+.main-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00ffcc;
 }
 
 .feature {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 12px 0;
+  background: rgba(50, 50, 50, 0.6);
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #fff;
 }
 
-button {
-  padding: 10px 20px;
-  background: #0084ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background: #005bbb;
-}
-
-.countdown {
-  margin-top: 10px;
-  font-weight: bold;
-  color: red;
-}
-
-.error-msg {
-  color: red;
-  margin-top: 10px;
-}
-
-/* Switch CSS */
 .switch {
   position: relative;
   display: inline-block;
@@ -65,31 +129,35 @@ button:hover {
 .slider {
   position: absolute;
   cursor: pointer;
-  background-color: #ccc;
-  border-radius: 34px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: 0.4s;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #555;
+  transition: .4s;
+  border-radius: 24px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  left: 4px;
-  bottom: 4px;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
   background-color: white;
-  transition: 0.4s;
+  transition: .4s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #4CAF50;
+  background-color: #00ff99;
 }
 
 input:checked + .slider:before {
   transform: translateX(26px);
+}
+
+.countdown {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ff5a5a;
 }

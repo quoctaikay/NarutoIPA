@@ -1,15 +1,12 @@
-// Danh sách key hợp lệ
+// Danh sách key hợp lệ (đã xoá key cũ, chỉ còn key mới)
 const validKeys = [
-  "nnhatv2",
-  "nnhatvip500",
-  "nnhatvip2l",
-  "nnhatvip100ca",
-  "nnhatvip50k",
-  "nnhattest1",
-  "nnhattest2",
-  "nnhattest3",
-  "nnhattest4",
-  "nnhattest5"
+  "devkay",
+  "nnhatv3",
+  "nnhatv3100",
+  "nnhatv3200k",
+  "nnhatv350c",
+  "nnhatv3300k",
+  "nnhatv3500k"
 ];
 
 function checkKey() {
@@ -17,38 +14,17 @@ function checkKey() {
   const errorMsg = document.getElementById("errorMsg");
 
   if (validKeys.includes(inputKey)) {
-    // Key nnhatv2: giới hạn thời gian
-    if (inputKey === "nnhatv2") {
-      const firstUse = localStorage.getItem("nnhatv2_start");
-      if (firstUse) {
-        const timePassed = Date.now() - parseInt(firstUse, 10);
-        if (timePassed > 2 * 60 * 60 * 1000) {
-          errorMsg.textContent = "❌ Key nnhatv2 đã hết hạn.";
-          return;
-        } else {
-          localStorage.setItem("loggedIn", "nnhatv2");
-          window.location.href = "main.html";
-          return;
-        }
-      } else {
-        localStorage.setItem("nnhatv2_start", Date.now().toString());
-        localStorage.setItem("loggedIn", "nnhatv2");
-        window.location.href = "main.html";
-        return;
-      }
-    }
-
-    // Key test (giới hạn 20 lần)
-    if (inputKey.startsWith("nnhattest")) {
+    // Key test mới (giới hạn 5 lần)
+    if (inputKey === "devkay") {
       let usedCount = parseInt(localStorage.getItem(inputKey + "_count") || "0", 10);
-      if (usedCount >= 20) {
-        errorMsg.textContent = `❌ Key ${inputKey} đã vượt quá 20 lần đăng nhập.`;
+      if (usedCount >= 5) {
+        errorMsg.textContent = `❌ Key ${inputKey} đã vượt quá 5 lần đăng nhập.`;
         return;
       } else {
         usedCount++;
         localStorage.setItem(inputKey + "_count", usedCount.toString());
         localStorage.setItem("loggedIn", inputKey);
-        localStorage.setItem("remaining", (20 - usedCount).toString()); // lưu số lần còn lại
+        localStorage.setItem("remaining", (5 - usedCount).toString()); // lưu số lần còn lại
         window.location.href = "main.html";
         return;
       }
@@ -84,39 +60,13 @@ window.onload = function() {
     if (!loggedIn) {
       window.location.href = "index.html";
     } else {
-      if (loggedIn === "nnhatv2") {
-        const start = localStorage.getItem("nnhatv2_start");
-        if (start) {
-          const expiresAt = parseInt(start, 10) + 2*60*60*1000;
-          startCountdown(expiresAt);
-        }
-      }
-      if (loggedIn.startsWith("nnhattest")) {
+      if (loggedIn === "nnhattestv3") {
         const remaining = localStorage.getItem("remaining");
         if (remaining) {
-          document.getElementById("remainingInfo").textContent =
-            `🔑 Số lần còn lại cho ${loggedIn}: ${remaining}/20`;
+          document.getElementById("remainingInfo").textContent = 
+            `🔑 Số lần còn lại cho ${loggedIn}: ${remaining}/5`;
         }
       }
     }
   }
 };
-
-function startCountdown(exp) {
-  const cd = document.getElementById("countdown");
-  function tick() {
-    const now = Date.now();
-    const diff = exp - now;
-    if (diff <= 0) {
-      logout();
-      alert("Key nnhatv2 đã hết hạn.");
-      return;
-    }
-    const h = Math.floor(diff/1000/60/60);
-    const m = Math.floor((diff/1000/60)%60);
-    const s = Math.floor((diff/1000)%60);
-    cd.textContent = `⏳ Thời gian còn lại: ${h}h ${m}m ${s}s`;
-  }
-  tick();
-  setInterval(tick, 1000);
-}
