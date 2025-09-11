@@ -1,102 +1,54 @@
 body {
-  margin: 0;
-  font-family: 'Arial Black', sans-serif;
-  background-color: #000;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.login-container, .main-page {
-  text-align: center;
-  background: rgba(20, 20, 20, 0.9);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #00f7b3;
-  width: 90%;
-  max-width: 420px;
-}
-
-.avatar {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  border: 2px solid #00f7b3;
-}
-
-h1, h2 {
-  color: #00f7b3;
-  text-shadow: 0 0 10px #00f7b3;
-}
-
-.tagline {
-  color: #ccc;
-  margin-bottom: 20px;
-  font-size: 14px;
-}
-
-input[type="text"] {
-  width: 90%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #00f7b3;
-  background: #111;
-  color: #fff;
-  font-size: 14px;
-}
-
-button {
-  width: 95%;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  background-color: #00f7b3;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #fff;
   color: #000;
+}
+
+h2 {
+  font-size: 24px;
   font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
 }
 
-button:hover {
-  background-color: #00d999;
-}
-
-.error {
-  color: red;
-  margin-top: 10px;
-}
-
-.note {
-  text-align: left;
-  margin-top: 20px;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  border-left: 3px solid #00f7b3;
-  border-radius: 6px;
-  font-size: 13px;
-}
-
-.footer {
-  margin-top: 20px;
-  font-size: 12px;
-  color: #00f7b3;
+.main-page, .login-box {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
 }
 
 .feature {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px;
-  margin: 10px 0;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 8px;
-  font-size: 15px;
+  margin: 12px 0;
 }
 
+button {
+  padding: 10px 20px;
+  background: #0084ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #005bbb;
+}
+
+.countdown {
+  margin-top: 10px;
+  font-weight: bold;
+  color: red;
+}
+
+.error-msg {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Switch CSS */
 .switch {
   position: relative;
   display: inline-block;
@@ -104,42 +56,40 @@ button:hover {
   height: 24px;
 }
 
-.switch input {display:none;}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
 .slider {
   position: absolute;
   cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #444;
-  transition: .4s;
-  border-radius: 24px;
+  transition: 0.4s;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: .4s;
+  height: 16px;
+  width: 16px;
   border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #00f7b3;
-  box-shadow: 0 0 10px #00f7b3;
+  background-color: #4CAF50;
 }
 
 input:checked + .slider:before {
   transform: translateX(26px);
-}
-
-.countdown {
-  margin-top: 15px;
-  color: #00f7b3;
 }
