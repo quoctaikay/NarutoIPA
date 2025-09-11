@@ -14,7 +14,7 @@ function checkKey() {
   const errorMsg = document.getElementById("errorMsg");
 
   if (validKeys.includes(inputKey)) {
-    // Key test mới (giới hạn 5 lần)
+    // Key test mới (giới hạn 50 lần)
     if (inputKey === "devkay") {
       let usedCount = parseInt(localStorage.getItem(inputKey + "_count") || "0", 10);
       if (usedCount >= 5) {
@@ -64,7 +64,7 @@ window.onload = function() {
         const remaining = localStorage.getItem("remaining");
         if (remaining) {
           document.getElementById("remainingInfo").textContent = 
-            `🔑 Số lần còn lại cho ${loggedIn}: ${remaining}/5`;
+            `🔑 Số lần còn lại cho ${loggedIn}: ${remaining}/50`;
         }
       }
     }
