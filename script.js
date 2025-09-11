@@ -1,12 +1,12 @@
 // Danh sách key hợp lệ (đã xoá key cũ, chỉ còn key mới)
 const validKeys = [
   "devkay",
-  "nnhatv3",
-  "nnhatv3100",
-  "nnhatv3200k",
-  "nnhatv350c",
-  "nnhatv3300k",
-  "nnhatv3500k"
+  "kaitokid1",
+  "kaitokid2",
+  "kaitokid3",
+  "kayuchiha",
+  "uchihacoder",
+  "kayadmin"
 ];
 
 function checkKey() {
@@ -60,7 +60,7 @@ window.onload = function() {
     if (!loggedIn) {
       window.location.href = "index.html";
     } else {
-      if (loggedIn === "nnhattestv3") {
+      if (loggedIn === "devkay") {
         const remaining = localStorage.getItem("remaining");
         if (remaining) {
           document.getElementById("remainingInfo").textContent = 
